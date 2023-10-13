@@ -10,10 +10,11 @@ stampiamo solo gli ultimi 5 numeri dell'array */
 
 const userNumber = document.getElementById('data');
 const btn = document.querySelector('button')
-let n = 10
-let userArray = new Array(n);
+let n = 10;
+let userArray = new Array(10);
 userArray = userArray.fill(0).map(() => getRndInteger(1, 100));
 console.log(userArray);
 
 const lastFive = userArray.slice(-5);
 console.log(lastFive);
+
