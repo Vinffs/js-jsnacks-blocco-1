@@ -1,28 +1,32 @@
-const fridge = ['banana', 'mela', 'pera', 'ciliegia', 'arancia', 'cocomero', 'mandarino', 'limone', 'fragola'];
+const fridge = ['banana', 'mela', 'pera', 'ciliegia', 'cocomero', 'arancia', 'mandarino', 'limone', 'fragola'];
 const table = ['pesca'];
-console.log(fridge);
 const moveToFridge = table.shift();
 fridge.push(moveToFridge);
-let checkFruit = false;
-let msg;
+const btn = document.querySelector('.checkButton')
+const result = document.querySelector('.alert')
+console.log(fridge);
 
 
-for (let i = 0; i <= fridge.length - 1; i++) {
-  console.log(fridge[i]);
-  if (fridge[i] === 'cocomero') {
-    checkFruit = true;
-  } else {
-    checkFruit = false;
+btn.addEventListener('click', function () {
+  let checkFruit = false;
+
+  for (let i = 0; i <= fridge.length - 1; i++) {
+    if (fridge[i] === 'cocomero') {
+      checkFruit = true;
+    } else { }
   }
-}
 
-if (checkFruit = true) {
-  msg = 'Trovato! Devo solo preparare il cocktail.'
-} else {
-  msg = 'Oh no, devo uscire a comprare il cocomero!'
-}
+  let msg = document.createElement('div')
 
-console.log(msg);
+  if (checkFruit == true) {
+    msg.innerText = 'Trovato! Devo solo preparare il cocktail.'
+  } else {
+    msg.innerText = 'Oh no, devo uscire a comprare il cocomero!'
+  }
+  console.log(msg);
+  result.appendChild(msg);
+}
+)
 
 
 
