@@ -8,13 +8,24 @@ Si potrebbe poi utilizzare le proprietà delle array per riempire gli slot ( slo
 stampiamo solo gli ultimi 5 numeri dell'array */
 
 
-const userNumber = document.getElementById('data');
-const btn = document.querySelector('button')
-let n = 10;
-let userArray = new Array(10);
-userArray = userArray.fill(0).map(() => getRndInteger(1, 100));
-console.log(userArray);
+const btn = document.querySelector('.generatorButton');
+const result = document.querySelector('.alert')
 
-const lastFive = userArray.slice(-5);
-console.log(lastFive);
+
+btn.addEventListener('click', function () {
+  const userNumber = document.getElementById('dataInput').value;
+  let userArray = new Array();
+  const resultText = document.createElement('p')
+
+  for (let i = 0; i < userNumber; i++) {
+    let random = getRndInteger(1, 100);
+    userArray.push(random);
+  }
+  const lastFive = userArray.slice(-5);
+  console.log(userArray, lastFive);
+
+  resultText.innerHTML = `${lastFive}`;
+  result.appendChild(resultText);
+
+})
 
