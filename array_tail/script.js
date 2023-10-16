@@ -14,6 +14,7 @@ const result = document.querySelector('.alert')
 
 btn.addEventListener('click', function () {
   const userNumber = document.getElementById('dataInput').value;
+  const userArrayNum = document.getElementById('arrayInput').value;
   let userArray = new Array();
   const resultText = document.createElement('p')
 
@@ -21,11 +22,13 @@ btn.addEventListener('click', function () {
     let random = getRndInteger(1, 100);
     userArray.push(random);
   }
-  const lastFive = userArray.slice(-5);
-  console.log(userArray, lastFive);
 
-  resultText.innerHTML = `${lastFive}`;
+  if (parseInt(userNumber) <= parseInt(userArrayNum)) {
+    resultText.innerHTML = `Numbers inserted cannot be inferior or equal to numbers to display.`
+  } else {
+    let displayArray = userArray.slice((userNumber - userArrayNum));
+    resultText.innerHTML = `${displayArray}`;
+  }
   result.appendChild(resultText);
-
 })
 
